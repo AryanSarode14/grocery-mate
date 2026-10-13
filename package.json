@@ -1,0 +1,35 @@
+{
+  "name": "grocery-mate",
+  "version": "1.0.0",
+  "description": "Shared household pantry and recipe catalog",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AryanSarode14/grocery-mate.git"
+  },
+  "keywords": [],
+  "author": "Aryan Sarode, Aaryan Nilesh Kathole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AryanSarode14/grocery-mate/issues"
+  },
+  "homepage": "https://github.com/AryanSarode14/grocery-mate#readme",
+  "dependencies": {
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "mongodb": "^7.7.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  }
+}
