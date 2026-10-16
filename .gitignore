@@ -147,3 +147,9 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Local datasets
+data/
+
+# Claude Code
+CLAUDE.md

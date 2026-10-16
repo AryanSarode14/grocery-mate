@@ -10,3 +10,8 @@ export async function getDB() {
   }
   return db;
 }
+
+export async function closeDB() {
+  await c.close();
+  db = undefined;
+}
