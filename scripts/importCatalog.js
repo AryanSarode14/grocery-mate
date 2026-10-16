@@ -16,13 +16,11 @@ const COLUMNS = [
   "n_ingredients",
 ];
 
-// Streaming CSV parser: handles quoted fields with commas, newlines, and "" escapes.
-// State is kept between chunks so a row can span chunk boundaries.
 function createCSVParser() {
   let field = "";
   let row = [];
   let inQuotes = false;
-  let quotePending = false; // saw " inside quotes; next char decides if it's "" or the closing quote
+  let quotePending = false;
 
   function write(chunk) {
     const rows = [];
@@ -74,7 +72,6 @@ function createCSVParser() {
 
 const ESCAPES = { n: "\n", t: "\t", r: "\r", "\\": "\\", "'": "'", '"': '"' };
 
-// Parses a Python list literal of strings, e.g. ['a', "chef's knife"]. Returns [] if malformed.
 function parsePyList(text) {
   const s = text.trim();
   if (!s.startsWith("[") || !s.endsWith("]")) return [];
@@ -163,7 +160,6 @@ async function readRecipes() {
     }
   };
 
-  // Breaking out of the loop destroys the stream, so we stop reading once we have enough.
   read: for await (const chunk of createReadStream(CSV_PATH, {
     encoding: "utf8",
   })) {
