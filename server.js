@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import { getDB } from "./db/connection.js";
+import householdRecipes from "./routes/householdRecipes.js";
 
 const app = express();
 app.use(express.json());
@@ -10,5 +11,7 @@ app.get("/api/health", async (req, res) => {
   await (await getDB()).command({ ping: 1 });
   res.json({ ok: true });
 });
+
+app.use("/api/household-recipes", householdRecipes);
 
 app.listen(process.env.PORT || 3000);
