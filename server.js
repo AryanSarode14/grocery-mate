@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import { getDB } from "./db/connection.js";
 import householdRecipes from "./routes/householdRecipes.js";
+import households from "./routes/households.js";
 import recipes from "./routes/recipes.js";
 
 const app = express();
@@ -14,6 +15,7 @@ app.get("/api/health", async (req, res) => {
 });
 
 app.use("/api/household-recipes", householdRecipes);
+app.use("/api/households", households);
 app.use("/api/recipes", recipes);
 
 app.use((err, req, res, next) => {
