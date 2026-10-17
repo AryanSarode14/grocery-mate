@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join a household · Grocery Mate</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="module" src="js/index.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav aria-label="Main">
+        <a href="pantry.html">Pantry</a>
+        <a href="browse.html">Recipes</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Grocery Mate</h1>
+      <section class="how" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <ol>
+          <li>Create a household.</li>
+          <li>Share the code with your roommates.</li>
+          <li>Everyone sees and updates the same pantry.</li>
+        </ol>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div id="error" class="alert" role="alert" tabindex="-1" hidden></div>
+
+      <section id="joined" class="joined" aria-labelledby="joined-title" hidden>
+        <h2 id="joined-title"></h2>
+        <p class="code-label">Your household code</p>
+        <p id="code-show" class="code"></p>
+        <div class="actions">
+          <button type="button" id="copy">Copy code</button>
+          <span id="copied" class="copied" aria-live="polite"></span>
+        </div>
+        <div class="actions">
+          <a class="button" href="pantry.html">Go to my pantry</a>
+          <button type="button" id="leave" class="leave">
+            Leave household
+          </button>
+        </div>
+      </section>
+
+      <section id="start" aria-label="Create or join a household" hidden>
+        <p id="note" class="note" hidden></p>
+        <div class="forms">
+          <form id="create-form" class="panel">
+            <h2>Create a household</h2>
+            <div class="field">
+              <label for="name">Household name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                maxlength="60"
+                required
+                placeholder="e.g. Maple St apartment"
+              />
+            </div>
+            <button type="submit">Create household</button>
+          </form>
+
+          <form id="join-form" class="panel">
+            <h2>Join a household</h2>
+            <div class="field">
+              <label for="code">Household code</label>
+              <input
+                type="text"
+                id="code"
+                name="code"
+                minlength="6"
+                maxlength="6"
+                required
+                autocomplete="off"
+                autocapitalize="characters"
+                spellcheck="false"
+                placeholder="e.g. K7M2QX"
+              />
+            </div>
+            <button type="submit">Join household</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

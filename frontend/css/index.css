@@ -1,0 +1,102 @@
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.how {
+  color: var(--muted);
+}
+
+.how h2 {
+  margin-bottom: 0.25rem;
+  color: var(--fg);
+  font-size: 1rem;
+}
+
+.how ol {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.note {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--accent-soft);
+}
+
+.forms {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .forms {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.panel,
+.joined {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--card);
+}
+
+.panel {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.panel h2 {
+  margin: 0;
+}
+
+.field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+#code {
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+#code::placeholder {
+  text-transform: none;
+}
+
+.code-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+.code {
+  margin: 0 0 1rem;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.copied {
+  color: var(--muted);
+}
+
+.leave {
+  border-color: var(--danger);
+  background: transparent;
+  color: var(--danger);
+}
