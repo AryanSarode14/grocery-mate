@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipes · Grocery Mate</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/browse.css" />
+    <script type="module" src="js/browse.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav aria-label="Main">
+        <a href="pantry.html">Pantry</a>
+        <a href="browse.html" aria-current="page">Recipes</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Recipes</h1>
+      <p class="intro">
+        Search by name or ingredient, filter by time, tap a tag to narrow down.
+        Recipes you add are shared with your household.
+      </p>
+      <p><a class="button" href="recipe-form.html">Add a recipe</a></p>
+
+      <form
+        id="search"
+        class="search"
+        method="get"
+        action="browse.html"
+        role="search"
+      >
+        <div class="field">
+          <label for="q">Search</label>
+          <input
+            type="search"
+            id="q"
+            name="q"
+            maxlength="100"
+            placeholder="e.g. chicken or basil"
+          />
+        </div>
+        <div class="field">
+          <label for="maxMinutes">Time</label>
+          <select id="maxMinutes" name="maxMinutes">
+            <option value="">Any time</option>
+            <option value="15">Up to 15 minutes</option>
+            <option value="30">Up to 30 minutes</option>
+            <option value="60">Up to 60 minutes</option>
+          </select>
+        </div>
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="notice" class="notice" hidden></p>
+      <nav id="tags" class="tags" aria-label="Filter by tag"></nav>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div id="error" class="alert" role="alert" hidden></div>
+      <p id="count" class="count"></p>
+      <p id="empty" class="empty" hidden></p>
+      <ul id="results" class="results"></ul>
+      <nav id="pager" class="pager" aria-label="Pagination" hidden></nav>
+    </main>
+  </body>
+</html>
