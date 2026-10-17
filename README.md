@@ -140,9 +140,6 @@ grocery-mate/
 
 ## Use of Generative AI
 
-Claude (Anthropic) was used through Claude Code to help plan, write and test parts of the code, and Claude was used for planning and writing support.
-
-<fill in details per course policy>
 
 ## License
 
