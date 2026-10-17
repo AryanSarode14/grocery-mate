@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Pantry · Grocery Mate</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/pantry.css" />
+    <script type="module" src="js/pantry.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav aria-label="Main">
+        <a href="pantry.html" aria-current="page">Pantry</a>
+        <a href="browse.html">Recipes</a>
+      </nav>
+    </header>
+    <main>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div id="error" class="alert" role="alert" tabindex="-1" hidden></div>
+
+      <section id="join" class="join" aria-labelledby="join-title" hidden>
+        <h1 id="join-title">My Pantry</h1>
+        <p>Join a household to see your pantry.</p>
+        <a class="button" href="index.html">Join or create a household</a>
+      </section>
+
+      <div id="pantry" hidden>
+        <h1>My Pantry</h1>
+        <p id="household" class="household"></p>
+        <p class="intro">
+          Items expiring in the next 3 days are highlighted. Recipe ideas below
+          use what's expiring this week.
+        </p>
+        <p id="summary" class="summary"></p>
+        <p><a class="button" href="pantry-form.html">Add an item</a></p>
+
+        <section aria-labelledby="items-title">
+          <h2 id="items-title" tabindex="-1">Items</h2>
+          <p id="empty" class="empty" hidden>
+            Your pantry is empty. Add what's in your fridge to get started.
+          </p>
+          <ul id="items" class="items"></ul>
+        </section>
+
+        <section aria-labelledby="ideas-title">
+          <h2 id="ideas-title">Use it up</h2>
+          <p id="using" class="using" hidden></p>
+          <p id="no-ideas" class="empty" hidden>
+            Nothing expires this week. Recipe ideas show up here when something
+            does.
+          </p>
+          <p id="no-match" class="empty" hidden>
+            No recipes use these items yet.
+          </p>
+          <ul id="ideas" class="ideas"></ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+:root {
+  --warn: #8a5a00;
+  --warn-soft: #fdf3dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --warn: #f2c160;
+    --warn-soft: #3a2f16;
+  }
+}
+
+h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+
+.household,
+.intro {
+  margin: 0 0 0.5rem;
+}
+
+.intro,
+.empty,
+.meta {
+  color: var(--muted);
+}
+
+.code {
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0.1em;
+}
+
+.summary {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+.items,
+.ideas {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item,
+.card {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--card);
+}
+
+.item {
+  border-left-width: 6px;
+}
+
+.item.soon {
+  border-color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.item.expired {
+  border-color: var(--danger);
+  border-style: dashed;
+}
+
+.item.expired .date {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.meta,
+.expiry,
+.card p {
+  margin: 0.25rem 0 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.soon .badge {
+  background: var(--warn);
+  color: var(--bg);
+}
+
+.expired .badge {
+  background: var(--danger);
+  color: var(--bg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.delete {
+  border-color: var(--danger);
+  background: transparent;
+  color: var(--danger);
+}
+
+.using {
+  font-weight: 600;
+}
+
+.card {
+  display: block;
+  height: 100%;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card .uses {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (min-width: 40rem) {
+  .ideas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
