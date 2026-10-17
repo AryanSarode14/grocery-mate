@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { ObjectId } from "mongodb";
 import { requireHousehold } from "../middleware/householdCode.js";
-import { list, get, create, update, remove } from "../db/pantryDB.js";
+import { list, get, create, update, remove, summary } from "../db/pantryDB.js";
+import { suggestions } from "../db/suggestionsDB.js";
 
 const r = Router();
 r.use(requireHousehold);
@@ -85,7 +86,31 @@ function validate(b, partial) {
   return { out, errs };
 }
 
+function getToday(q) {
+  if (q === undefined) {
+    const n = new Date();
+    return new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()));
+  }
+  return isStr(q) ? parseDate(q) : null;
+}
+const badToday = (res) =>
+  res
+    .status(400)
+    .json({ error: "today must be a real date in YYYY-MM-DD format" });
+
 r.get("/", async (req, res) => res.json((await list(req.code)).map(fmt)));
+
+r.get("/summary", async (req, res) => {
+  const today = getToday(req.query.today);
+  if (!today) return badToday(res);
+  res.json(await summary(req.code, today));
+});
+
+r.get("/suggestions", async (req, res) => {
+  const today = getToday(req.query.today);
+  if (!today) return badToday(res);
+  res.json(await suggestions(req.code, today));
+});
 
 r.get("/:id", async (req, res) => {
   const id = toId(req.params.id);
