@@ -54,11 +54,6 @@ h2 {
   margin: 0;
 }
 
-.field {
-  display: grid;
-  gap: 0.25rem;
-}
-
 #code {
   font-family: ui-monospace, Consolas, monospace;
   letter-spacing: 0.15em;
@@ -76,7 +71,6 @@ h2 {
 
 .code {
   margin: 0 0 1rem;
-  font-family: ui-monospace, Consolas, monospace;
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -84,10 +78,7 @@ h2 {
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
   margin-top: 0.75rem;
 }
 

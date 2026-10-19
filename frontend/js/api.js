@@ -1,14 +1,8 @@
-const stored = () => {
-  try {
-    return localStorage.getItem("householdCode");
-  } catch {
-    return null;
-  }
-};
+import { store } from "./dom.js";
 
 export async function api(path, opts = {}) {
   const o = { ...opts, headers: { ...opts.headers } };
-  const code = stored();
+  const code = store.get("householdCode");
   if (code) o.headers["x-household-code"] = code;
   const b = o.body;
   if (Array.isArray(b) || b?.constructor === Object) {

@@ -28,14 +28,11 @@ h3 {
   margin: 0 0 0.5rem;
 }
 
-.intro,
-.empty,
-.meta {
+.empty {
   color: var(--muted);
 }
 
 .code {
-  font-family: ui-monospace, Consolas, monospace;
   letter-spacing: 0.1em;
 }
 
@@ -55,16 +52,12 @@ h3 {
   list-style: none;
 }
 
-.item,
-.card {
+.item {
   padding: 1rem;
   border: 1px solid var(--line);
+  border-left-width: 6px;
   border-radius: 0.75rem;
   background: var(--card);
-}
-
-.item {
-  border-left-width: 6px;
 }
 
 .item.soon {
@@ -89,10 +82,6 @@ h3 {
 }
 
 .badge {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -109,8 +98,6 @@ h3 {
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.75rem;
 }
@@ -123,17 +110,6 @@ h3 {
 
 .using {
   font-weight: 600;
-}
-
-.card {
-  display: block;
-  height: 100%;
-  color: var(--fg);
-  text-decoration: none;
-}
-
-.card:hover {
-  border-color: var(--accent);
 }
 
 .card .uses {

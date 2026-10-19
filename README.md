@@ -9,11 +9,15 @@ One shared pantry for the whole apartment.
 
 ## Class
 
-CS 5610 Web Development, Northeastern University: <PASTE CLASS LINK>
+CS 5610 Web Development, Northeastern University: <https://johnguerra.co/classes/webDevelopment_online_fall_2026/>
 
 ## Live Site
 
 https://grocery-mate-0c8p.onrender.com
+
+## Design Document
+
+Project description, user personas, user stories and mockups: [Design Document](https://drive.google.com/file/d/1I6-DHl2xEn22tCrRkb5tG5tiQgYytWJu/view?usp=sharing)
 
 ## Objective
 
@@ -95,7 +99,6 @@ Other scripts: `npm run lint` runs ESLint, and `npm run format` runs Prettier on
 
 | Method | Path                         | Header   | What it does                                                                                       |
 | ------ | ---------------------------- | -------- | -------------------------------------------------------------------------------------------------- |
-| GET    | `/api/health`                | No       | Checks the database connection                                                                     |
 | POST   | `/api/households`            | No       | Creates a household and returns its name and code                                                  |
 | GET    | `/api/households/me`         | Required | Returns the current household's name and code                                                      |
 | GET    | `/api/pantry`                | Required | Lists pantry items sorted by expiry                                                                |
@@ -140,6 +143,7 @@ grocery-mate/
 
 ## Use of Generative AI
 
+We used Claude (Anthropic) throughout this project. We used claude.ai to plan the project structure, data model and API, and to create the design document mockups. We used Claude Code to write most of the code: for each feature it proposed a plan, we reviewed and approved it, it wrote the code and explained every line, and we reviewed it before committing. Claude Code also wrote and ran tests against the API and pages, and we tested every page manually in the browser. We also used AI to review the code against the rubric and to write this README.
 
 ## License
 

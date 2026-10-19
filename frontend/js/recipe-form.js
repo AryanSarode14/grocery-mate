@@ -1,12 +1,6 @@
 import { api } from "./api.js";
+import { $, el, store } from "./dom.js";
 
-const $ = (id) => document.getElementById(id);
-const el = (tag, cls, text) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-};
 const lines = (s) =>
   s
     .split(/\r?\n/)
@@ -24,14 +18,6 @@ const id = new URLSearchParams(location.search).get("id");
 const form = $("form");
 const box = $("errors");
 const save = $("save");
-
-const stored = () => {
-  try {
-    return localStorage.getItem("householdCode");
-  } catch {
-    return null;
-  }
-};
 
 function show(msg, items = [], href, label) {
   const p = el("p", null, msg);
@@ -95,7 +81,7 @@ $("title").textContent = title;
 document.title = `${title} · Grocery Mate`;
 $("cancel").href = id ? detail(id) : "browse.html";
 
-if (!stored()) {
+if (!store.get("householdCode")) {
   $("join").hidden = false;
 } else if (!id) {
   form.hidden = false;

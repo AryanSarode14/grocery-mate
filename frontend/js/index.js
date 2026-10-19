@@ -1,35 +1,10 @@
 import { api } from "./api.js";
-
-const $ = (id) => document.getElementById(id);
-const el = (tag, cls, text) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-};
+import { $, el, store } from "./dom.js";
 
 const KEY = "householdCode";
-const getCode = () => {
-  try {
-    return localStorage.getItem(KEY);
-  } catch {
-    return null;
-  }
-};
-const setCode = (c) => {
-  try {
-    localStorage.setItem(KEY, c);
-  } catch {
-    // storage blocked, nothing to save
-  }
-};
-const clearCode = () => {
-  try {
-    localStorage.removeItem(KEY);
-  } catch {
-    // storage blocked, nothing to remove
-  }
-};
+const getCode = () => store.get(KEY);
+const setCode = (c) => store.set(KEY, c);
+const clearCode = () => store.remove(KEY);
 const isGone = (e) => e.status === 404 && e.message === "Household not found";
 
 function hideError() {

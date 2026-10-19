@@ -1,6 +1,5 @@
 import "dotenv/config";
 import express from "express";
-import { getDB } from "./db/connection.js";
 import householdRecipes from "./routes/householdRecipes.js";
 import households from "./routes/households.js";
 import pantry from "./routes/pantry.js";
@@ -10,15 +9,11 @@ const app = express();
 app.use(express.json());
 app.use(express.static("frontend"));
 
-app.get("/api/health", async (req, res) => {
-  await (await getDB()).command({ ping: 1 });
-  res.json({ ok: true });
-});
-
 app.use("/api/household-recipes", householdRecipes);
 app.use("/api/households", households);
 app.use("/api/pantry", pantry);
 app.use("/api/recipes", recipes);
+app.use("/api", (req, res) => res.status(404).json({ error: "Not found" }));
 
 app.use((err, req, res, next) => {
   if (res.headersSent) return next(err);

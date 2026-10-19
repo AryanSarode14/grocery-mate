@@ -1,34 +1,7 @@
 import { api } from "./api.js";
+import { $, el, store } from "./dom.js";
 
-const $ = (id) => document.getElementById(id);
-const el = (tag, cls, text) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-};
-
-const getItem = (k) => {
-  try {
-    return localStorage.getItem(k);
-  } catch {
-    return null;
-  }
-};
-const setItem = (k, v) => {
-  try {
-    localStorage.setItem(k, v);
-  } catch {
-    // storage blocked, nothing to remember
-  }
-};
-const clearCode = () => {
-  try {
-    localStorage.removeItem("householdCode");
-  } catch {
-    // storage blocked, nothing to remove
-  }
-};
+const clearCode = () => store.remove("householdCode");
 const isGone = (e) => e?.status === 404 && e.message === "Household not found";
 const isMissing = (e) =>
   e?.status === 404 && e.message === "Pantry item not found";
@@ -92,7 +65,7 @@ form.addEventListener("submit", async (e) => {
       method: id ? "PUT" : "POST",
       body,
     });
-    if (body.boughtBy.trim()) setItem("boughtBy", body.boughtBy.trim());
+    if (body.boughtBy.trim()) store.set("boughtBy", body.boughtBy.trim());
     location.replace("pantry.html");
     return;
   } catch (err) {
@@ -109,10 +82,10 @@ const title = id ? "Edit item" : "Add an item";
 $("title").textContent = title;
 document.title = `${title} · Grocery Mate`;
 
-if (!getItem("householdCode")) {
+if (!store.get("householdCode")) {
   showJoin();
 } else if (!id) {
-  $("boughtBy").value = getItem("boughtBy") ?? "";
+  $("boughtBy").value = store.get("boughtBy") ?? "";
   form.hidden = false;
 } else {
   $("status").textContent = "Loading item…";

@@ -1,12 +1,6 @@
 import { api } from "./api.js";
+import { $, el } from "./dom.js";
 
-const $ = (id) => document.getElementById(id);
-const el = (tag, cls, text) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-};
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
 const p = new URLSearchParams(location.search);

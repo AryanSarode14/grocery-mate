@@ -1,29 +1,11 @@
 import { api } from "./api.js";
+import { $, el, store } from "./dom.js";
 
-const $ = (id) => document.getElementById(id);
-const el = (tag, cls, text) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-};
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
 const KEY = "householdCode";
-const getCode = () => {
-  try {
-    return localStorage.getItem(KEY);
-  } catch {
-    return null;
-  }
-};
-const clearCode = () => {
-  try {
-    localStorage.removeItem(KEY);
-  } catch {
-    // storage blocked, nothing to remove
-  }
-};
+const getCode = () => store.get(KEY);
+const clearCode = () => store.remove(KEY);
 const isGone = (e) => e?.status === 404 && e.message === "Household not found";
 
 const pad = (n) => String(n).padStart(2, "0");

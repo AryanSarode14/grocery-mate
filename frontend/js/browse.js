@@ -1,12 +1,6 @@
 import { api } from "./api.js";
+import { $, el, store } from "./dom.js";
 
-const $ = (id) => document.getElementById(id);
-const el = (tag, cls, text) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-};
 const plural = (n, word) =>
   `${n.toLocaleString()} ${word}${n === 1 ? "" : "s"}`;
 
@@ -51,7 +45,7 @@ async function load() {
     return await fetchAll();
   } catch (e) {
     if (e.status !== 404 || e.message !== "Household not found") throw e;
-    localStorage.removeItem("householdCode");
+    store.remove("householdCode");
     $("notice").textContent =
       "Your saved household code is no longer valid, showing catalog recipes only.";
     $("notice").hidden = false;
