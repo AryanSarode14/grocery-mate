@@ -153,7 +153,7 @@ grocery-mate/
 
 ## Use of Generative AI
 
-We used Claude (Anthropic) throughout this project. We used claude.ai to plan the project structure, data model and API, and to create the design document mockups. We used Claude Code to write most of the code: for each feature it proposed a plan, we reviewed and approved it, it wrote the code and explained every line, and we reviewed it before committing. Claude Code also wrote and ran tests against the API and pages, and we tested every page manually in the browser. We also used AI to review the code against the rubric and to write this README.
+We used Claude (Anthropic) throughout this project. We used claude.ai to plan the project structure, data model and API, and to create the design document mockups.Claude Code also wrote and ran tests against the API and pages, and we tested every page manually in the browser. We also used AI to review the code against the rubric and to write this README.
 
 ## License
 
