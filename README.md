@@ -15,6 +15,16 @@ CS 5610 Web Development, Northeastern University: <https://johnguerra.co/classes
 
 https://grocery-mate-0c8p.onrender.com
 
+   ## Video Demo
+
+   [![Watch the Grocery Mate demo](https://img.youtube.com/vi/KFNCNpiDusQ/hqdefault.jpg)](https://youtu.be/KFNCNpiDusQ)
+
+   Watch the demo on YouTube: https://youtu.be/KFNCNpiDusQ
+
+## Presentation
+
+[View the slides on Google Slides](https://docs.google.com/presentation/d/1_JF2jJvLCpEXtey1td5N1-FWDSPTDQrdnoKuImWAufA/view?usp=sharing)
+
 ## Design Document
 
 Project description, user personas, user stories and mockups: [Design Document](https://drive.google.com/file/d/1I6-DHl2xEn22tCrRkb5tG5tiQgYytWJu/view?usp=sharing)
