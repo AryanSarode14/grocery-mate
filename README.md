@@ -21,9 +21,9 @@ https://grocery-mate-0c8p.onrender.com
 
    Watch the demo on YouTube: https://youtu.be/KFNCNpiDusQ
 
-## Presentation
+   ## Presentation
 
-[View the slides on Google Slides](https://docs.google.com/presentation/d/1_JF2jJvLCpEXtey1td5N1-FWDSPTDQrdnoKuImWAufA/view?usp=sharing)
+   [View the slides on Google Slides](https://docs.google.com/presentation/d/1rpURQEkZVop9u6JQYCd2lvaEfLYAyYH2GeyAtzxvbzY/view?usp=sharing)
 
 ## Design Document
 
