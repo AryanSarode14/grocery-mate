@@ -37,6 +37,8 @@ function parseDate(s) {
   if (!m) return null;
   const [y, mo, d] = [+m[1], +m[2], +m[3]];
   const dt = new Date(Date.UTC(y, mo - 1, d));
+  // Ken: This is great. I noticed you are checking that the date is valid 
+  // so it will rejects dates like 2026-02-31.
   const ok =
     dt.getUTCFullYear() === y &&
     dt.getUTCMonth() === mo - 1 &&
@@ -44,11 +46,18 @@ function parseDate(s) {
   return ok ? dt : null;
 }
 
+// Ken: This is alright, just a suggestion.
+// This validation function handles several different rules. 
+// Maybe separating some of the validation into smaller helper functions could make it easier to read and test.
 function validate(b, partial) {
   const out = {};
   const errs = [];
   const has = (k) => b[k] !== undefined;
 
+  // Ken: This is alright, just a suggestion. 
+  // I noticed that the pantry item name is converted to lowercase before being saved. 
+  // Would it be better to keep the user's original capitalization for display purposes? 
+  // We could still use case insensitive matching where needed without changing the original name.
   if (has("name")) {
     const n = isStr(b.name)
       ? b.name.trim().replace(/\s+/g, " ").toLowerCase()

@@ -22,6 +22,7 @@ function filter({ q, maxMinutes, tag }) {
   const f = {};
   const s = q?.trim();
   if (s) {
+    // Ken: Nice, escaping the search text before new RegExp avoids regex injection
     const re = new RegExp(esc(s), "i");
     f.$or = [{ name: re }, { ingredients: re }];
   }

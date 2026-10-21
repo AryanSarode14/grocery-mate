@@ -14,6 +14,9 @@ const newCode = () =>
     "",
   );
 
+// Ken: Just a suggestion. Since this function handles the household creation
+// and join code logic, maybe adding a short comment explaining the process
+// would make it easier for another developer to understand and maintain.
 export async function create(name) {
   const col = (await getDB()).collection("households");
   indexReady ??= col.createIndex({ code: 1 }, { unique: true }).catch((e) => {
