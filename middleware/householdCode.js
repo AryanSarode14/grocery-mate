@@ -10,6 +10,11 @@ export async function requireHousehold(req, res, next) {
     if (!household) {
       return res.status(404).json({ error: "Household not found" });
     }
+    // Ken: This is alright, just a suggestion.
+    // Noticed your household, keeps only code and throws the rest away.
+    // Then in the households.js route, /me queries the database again for the same document.
+    // We could store the whole household object in req.household and avoid the second call
+    // by adding req.household = household
     req.code = household.code;
     next();
   } catch (err) {

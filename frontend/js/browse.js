@@ -111,6 +111,8 @@ function renderResults({ items, total }) {
     empty.textContent =
       "No recipes match. Try removing the tag or time filter.";
   } else {
+    // Ken: Wonderful! I like this touch. It adds a link to go back to page 1 
+    // if the user is on a page that is past the end of the results.
     const a = el("a", null, "Go to page 1");
     a.href = link({ page: "" });
     empty.replaceChildren("That page is past the end of the results. ", a);

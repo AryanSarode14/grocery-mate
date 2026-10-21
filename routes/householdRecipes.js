@@ -69,6 +69,9 @@ function validate(b, partial) {
   return { out, errs };
 }
 
+// Ken: This is alright, just a suggestion.
+// I noticed that GET /api/household-recipes and GET /api/household-recipes/:id were not using.
+// May be these can be removed. However, this didn't affect the functionality of the application, so it is not a big deal.
 r.get("/", async (req, res) => res.json(await list(req.code)));
 
 r.get("/:id", async (req, res) => {

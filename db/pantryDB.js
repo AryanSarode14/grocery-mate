@@ -59,6 +59,8 @@ export async function summary(code, today) {
 }
 
 export async function get(code, id) {
+  // Ken: I noticed every read, update and delete includes householdCode.
+  // So one household can’t touch another’s data. This is great!
   return (await col()).findOne({ _id: id, householdCode: code });
 }
 

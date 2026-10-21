@@ -7,6 +7,9 @@ const p = new URLSearchParams(location.search);
 const src = p.get("src");
 const id = p.get("id");
 
+// Ken: I like this setupBack() function. 
+// It checks if the user came from browse.html and adds a back button to go back to that page. 
+// This is a nice touch for user experience.
 function setupBack() {
   let ref;
   try {

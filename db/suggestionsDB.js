@@ -3,6 +3,9 @@ import { getDB } from "./connection.js";
 const DAY = 864e5;
 const LIMIT = 12;
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// Ken: This is alright, just a suggestion.
+// word() won’t match plurals (‘egg’ vs ‘eggs’), so a lot of real pantry items will never produce suggestions. 
+// We could add (?:e?s)? before the lookahead to resolve this issue
 const word = (names) =>
   `(?<![a-z0-9])(${names.map(esc).join("|")})(?![a-z0-9])`;
 const anyIngredient = (re) => ({
@@ -14,6 +17,10 @@ const anyIngredient = (re) => ({
   },
 });
 
+// Ken: This is alright, just a suggestion.
+// I noticed this loads all pantry items into JavaScript and then filters the items expiring this week. 
+// May be we can let MongoDB filter the expiry range instead? 
+// This might reduce the amount of data returned as the pantry gets larger.
 export async function suggestions(code, today) {
   const db = await getDB();
   const week = new Date(+today + 7 * DAY);

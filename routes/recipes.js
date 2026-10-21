@@ -13,11 +13,16 @@ const optionalHousehold = (req, res, next) =>
 
 r.use(optionalHousehold);
 
+// Ken: This is alright, just a suggestion.
+// I noticed toId, notFound helper functions are defined in multiple files.
+// We could create a js that just for this helper functions and import them in the files that need them.
+// However, this didn't affect the functionality of the application, so it is not a big deal.
 const toId = (s) => (/^[0-9a-f]{24}$/i.test(s) ? new ObjectId(s) : null);
 const notFound = (res) => res.status(404).json({ error: "Recipe not found" });
 
 function parse(qs) {
   const errs = [];
+  // Ken: This is great! It prevent the odd query parameters from being passed to the Mongo.
   const one = (k) => {
     const v = qs[k];
     if (v === undefined || typeof v === "string") return v;
