@@ -1,3 +1,8 @@
+/* 
+I like how you separated your database connection logic from the operations found in the other "DB" files.
+The separation is a nice division that keeps things easy to understand and maintain.
+*/
+
 import { MongoClient } from "mongodb";
 
 const c = new MongoClient(process.env.MONGO_URI);

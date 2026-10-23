@@ -1,3 +1,8 @@
+/*
+Your code system for households is interesting. How you use a header
+to pass the code seems efficient and clear.
+*/
+
 import { findByCode } from "../db/householdsDB.js";
 
 export async function requireHousehold(req, res, next) {

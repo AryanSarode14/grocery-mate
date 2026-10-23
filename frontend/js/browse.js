@@ -1,3 +1,9 @@
+/*
+It would be helpful to have docstrings, or at least some comments, explaining your
+JavaScript. Your variables are also not descriptive which increases the difficulty
+of following your code further.
+*/
+
 import { api } from "./api.js";
 import { $, el, store } from "./dom.js";
 
