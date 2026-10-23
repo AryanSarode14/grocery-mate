@@ -1,3 +1,9 @@
+/*
+I like how you segmented the functionality around localStorage into its own
+file. It is a nice way to separate your concerns and makes what you are doing
+clear.
+*/
+
 export const $ = (id) => document.getElementById(id);
 
 export const el = (tag, cls, text) => {
